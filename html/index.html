@@ -1,10 +1,34 @@
+<!-- 这里作为项目的主页 -->
 <!DOCTYPE html>
 <html lang="zh">
     <head>
         <meta charset="UTF-8">
-        <title>标题</title>
+        <title>教学过程资料归档管理系统</title>
     </head>
     <body>
-        <p>Hello World</p>
+        <!-- 水平导航栏，主要包括项目名称、打开|关闭侧边栏按钮，（搜索）？ 等-->
+        <nav id="mainNav">
+            这里是水平导航栏。
+        </nav>
+        <!-- 侧边栏，采用无序列表 -->
+        <nav id="sideBar">
+            这里是侧边栏
+            <ul>
+                <li class="menu">个人中心</li>
+                <li class="menu">
+                    资料管理
+                    <ul>
+                        这里是一些选项，与用户相关
+                    </ul>
+                </li>
+                <li class="menu">消息通知</li>
+                <li class="menu">这里是特别选项，根据用户不同而有别</li>
+            </ul>
+        </nav>
+        <!-- 网页的主要区域 -->
+        <div class="container">
+            这里是主要区域。
+        </div>
+        <footer>这里是脚注</footer>
     </body>
 </html>
