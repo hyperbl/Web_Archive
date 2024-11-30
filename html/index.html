@@ -3,15 +3,24 @@
 <html lang="zh">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>教学过程资料归档管理系统</title>
+        <link href="../css/page.css" rel="stylesheet">
     </head>
     <body>
-        <!-- 水平导航栏，主要包括项目名称、打开|关闭侧边栏按钮，（搜索）？ 等-->
-        <nav id="mainNav">
-            这里是水平导航栏。
-        </nav>
+        <!-- 水平栏，主要包括项目名称、欢迎词、打开|关闭侧边栏按钮，（搜索）？ 等-->
+        <header>
+            <!-- 空的div用来占位 -->
+            <div class="empty-content"></div>
+            <div class="logo">教学过程资料归档管理系统</div>
+            <div class="empty-content"></div>
+            <div class="user-info">
+                <span>欢迎，xxx</span>
+                <button id="logout-btn">退出登录</button>
+            </div>
+        </header>
         <!-- 侧边栏，采用无序列表 -->
-        <nav id="sideBar">
+        <aside>
             这里是侧边栏
             <ul>
                 <li class="menu">个人中心</li>
@@ -24,11 +33,10 @@
                 <li class="menu">消息通知</li>
                 <li class="menu">这里是特别选项，根据用户不同而有别</li>
             </ul>
-        </nav>
+        </aside>
         <!-- 网页的主要区域 -->
-        <div class="container">
-            这里是主要区域。
-        </div>
-        <footer>这里是脚注</footer>
+        <main>
+            <div>这里是网页的主要区域</div>
+        </main>
     </body>
 </html>
