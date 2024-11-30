@@ -1,0 +1,108 @@
+/* page.css -- 基本页面的样式表 */
+
+/* 初始化，清除默认值 */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* 定义一些自定义属性 */
+:root {
+    --header-height: 10%;
+    --aside-width: 16%;
+}
+
+/* 水平栏 */
+header {
+    /* position: fixed;
+    top: 0;
+    width: 100%;
+    height: var(--header-height);
+    background-color: aqua; */
+    background-color: aquamarine;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+header .user-info {
+    font-size: 16px;
+}
+
+/* 占位块 */
+.empty-content {
+    position: relative;
+    display: block;
+}
+
+/* 按钮相关 */
+button {
+    background-color: #7fafd4;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover {
+    background-color: #75a0cc;
+}
+
+/* 侧边栏 */
+aside {
+    /* position: absolute; */
+    /* float: left;
+    margin-top: 5%;
+    top: var(--header-height);
+    width: var(--aside-width);
+    height: 100%;
+    background-color: aqua; */
+    width: 200px;
+    background-color: #02522f;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    padding-top: 60px;
+}
+
+aside ul {
+    list-style: none;
+    padding: 0;
+}
+
+aside ul li {
+    padding: 10px;
+}
+
+/* aside ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+aside ul li a:hover {
+    background-color: #575757;
+} */
+
+
+/* 主要部分 */
+main {
+    /* position: absolute;
+    top: var(--header-height);
+    left: var(--aside-width);
+    width: calc(100% - var(--aside-width));
+    height: calc(100% - var(--header-height));
+    background-color: antiquewhite; */
+    margin-left: 220px;
+    padding: 20px;
+}
