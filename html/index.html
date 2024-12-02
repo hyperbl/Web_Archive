@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>教学过程资料归档管理系统</title>
         <link href="../css/page.css" rel="stylesheet">
+        <script src="../javascript/aside.js" defer></script>
     </head>
     <body>
         <!-- 水平栏，主要包括项目名称、欢迎词、打开|关闭侧边栏按钮，（搜索）？ 等-->
@@ -14,29 +15,29 @@
             <div class="empty-content"></div>
             <div class="logo">教学过程资料归档管理系统</div>
             <div class="empty-content"></div>
+            <div class="empty-content"></div>
             <div class="user-info">
                 <span>欢迎，xxx</span>
                 <button id="logout-btn">退出登录</button>
             </div>
         </header>
-        <!-- 侧边栏，采用无序列表 -->
+        <!-- 侧边栏，采用无序列表；通过锚点实现页面的切换 -->
         <aside>
-            这里是侧边栏
             <ul>
-                <li class="menu">个人中心</li>
-                <li class="menu">
-                    资料管理
+                <li><a href="#personal-center">个人中心</a></li>
+                <li>
+                    <a href="#data-management">资料管理</a>
                     <ul>
-                        这里是一些选项，与用户相关
+                        <li><a href="#data-others">这里是一些选项，与用户相关</a></li>
                     </ul>
                 </li>
-                <li class="menu">消息通知</li>
-                <li class="menu">这里是特别选项，根据用户不同而有别</li>
+                <li><a href="#message-notifications">消息通知</a></li>
+                <li><a href="#others">这里是特别选项，根据用户不同而有别</a></li>
             </ul>
         </aside>
         <!-- 网页的主要区域 -->
         <main>
-            <div>这里是网页的主要区域</div>
+            <div id="">这里是网页的主要区域</div>
         </main>
     </body>
 </html>
