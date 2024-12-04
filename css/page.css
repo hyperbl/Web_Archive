@@ -32,6 +32,11 @@ header .logo {
     font-weight: bold;
 }
 
+header .logo a {
+    color: white;
+    text-decoration: none;
+}
+
 header .user-info {
     font-size: 16px;
 }
@@ -42,8 +47,8 @@ header .user-info {
     display: block;
 }
 
-/* 按钮相关 */
-button {
+/* 退出按钮 */
+#logout-btn {
     background-color: #7fafd4;
     color: white;
     border: none;
@@ -52,7 +57,7 @@ button {
     font-size: 14px;
 }
 
-button:hover {
+#logout-btn:hover {
     background-color: #75a0cc;
 }
 
