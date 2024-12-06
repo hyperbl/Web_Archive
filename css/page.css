@@ -97,8 +97,12 @@ aside ul li a {
 
 aside ul li a:hover {
     background-color: #575757;
+    cursor: pointer;
 }
 
+aside ul li a.folder+ul {
+    display: none;
+}
 
 /* 主要部分 */
 main {

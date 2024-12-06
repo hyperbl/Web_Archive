@@ -14,7 +14,7 @@
         <header>
             <!-- 空的div用来占位 -->
             <div class="empty-content"></div>
-            <div class="logo"><a href="index.html" title="点击以刷新页面">
+            <div class="logo"><a href="index.html" title="点击以返回主页">
                 教学过程资料归档管理系统</a></div>
             <div class="empty-content"></div>
             <div class="empty-content"></div>
@@ -26,20 +26,21 @@
         <!-- 侧边栏，采用无序列表；通过锚点实现页面的切换 -->
         <aside>
             <ul>
-                <li><a href="personal-center.html">个人中心</a></li>
+                <li><a class="item"  href="personal-center.html">个人中心</a></li>
                 <li>
-                    <a href="data-management.html">资料管理</a>
+                    <a class="folder">资料管理</a>
                     <ul>
-                        <li><a href="data-others.html">这里是一些选项，与用户相关</a></li>
+                        <li><a class="item" href="data-management.html">资料管理</a></li>
+                        <li><a class="item teacher" href="data-upload.html">资料上传</a></li>
+                        <li><a class="item officer" href="data-check.html">资料审阅</a></li>
                     </ul>
                 </li>
-                <li><a href="message-notifications.html">消息通知</a></li>
-                <li><a href="others.html">这里是特别选项，根据用户不同而有别</a></li>
+                <li><a class="item" href="message-notifications.html">消息通知</a></li>
             </ul>
         </aside>
         <!-- 网页的主要区域 -->
         <main>
-            <div id="">这里是网页的主要区域</div>
+            <div class="loadArea">这里是网页的主要区域</div>
         </main>
     </body>
 </html>
