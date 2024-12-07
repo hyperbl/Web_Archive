@@ -3,9 +3,14 @@
 // It is responsible for setting up the server and handling requests.
 import http from 'node:http';
 import path from 'node:path';
-import fs, { read } from 'node:fs';
+import fs from 'node:fs';
 
-const config = JSON.parse(fs.readFileSync('./config/default.json', 'utf8'));
+// default configuration
+const config = {
+    "port": 3000,
+    "root": "./",
+    "indexPage": "./html/index.html"
+};
 
 class Server {
     constructor() {
@@ -15,7 +20,13 @@ class Server {
     }
     respondNotFound(req, res) {
         res.writeHead(404, {'Content-Type': 'text/html'});
-        res.end('Not Found');
+        const readStream = fs.createReadStream(this.root + 'html/404.html');
+        readStream.on('error', (err) => {
+            console.error('Error reading 404 file:', err);
+            res.end('Not Found');
+        });
+        readStream.pipe(res);
+        // res.end('Not Found');
     }
     respondFile(pathName, req, res) {
         const readStream = fs.createReadStream(pathName);
@@ -41,7 +52,8 @@ class Server {
         http.createServer((req, res) => {
             const pathName = path.join(this.root, path.normalize(req.url));
             console.log(`Request for ${pathName}`);
-            res.writeHead(200);
+            res.statusCode = 200;
+            // res.writeHead(200);
             // res.end(`Request for ${pathName}`);
             this.routeHandler(pathName, req, res);
         }).listen(this.port, (err) => {

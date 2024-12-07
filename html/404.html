@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>页面不存在</title>
+    </head>
+    <body>
+        <h1>抱歉，该页面不存在！</h1>
+        <p>请检查您输入的网址是否正确，或者点击以下链接返回主页。</p>
+        <a href="/">返回主页</a>
+        <p id="redirectInformer"></p>
+        <script>
+            // Redirect to homepage after 20 seconds
+            setTimeout(() => {
+                window.location.href = '/';
+            }, 20000);
+
+            // Update the redirect informer
+            let redirectInformer = document.getElementById('redirectInformer');
+            let countDown = 20;
+            setInterval(() => {
+                countDown--;
+                redirectInformer.innerText = `页面也将在${countDown}s后自动跳转`;
+            }, 1000);
+        </script>
+    </body>
+</html>

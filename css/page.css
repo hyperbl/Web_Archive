@@ -70,7 +70,8 @@ aside {
     width: var(--aside-width);
     height: 100%;
     background-color: aqua; */
-    width: 200px;
+    /* width: 200px; */
+    width: 15%;
     background-color: #02522f;
     color: white;
     position: fixed;
