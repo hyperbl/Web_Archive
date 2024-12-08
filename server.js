@@ -7,6 +7,7 @@ import fs from 'node:fs';
 
 // default configuration
 const config = {
+    "host": "localhost",
     "port": 3000,
     "root": "./",
     "indexPage": "./html/index.html"
@@ -14,6 +15,7 @@ const config = {
 
 class Server {
     constructor() {
+        this.host = config.host;
         this.port = config.port;
         this.root = config.root;
         this.indexPage = config.indexPage;
@@ -56,12 +58,12 @@ class Server {
             // res.writeHead(200);
             // res.end(`Request for ${pathName}`);
             this.routeHandler(pathName, req, res);
-        }).listen(this.port, (err) => {
+        }).listen(this.port, this.host, (err) => {
             if (err) {
                 console.error('Error starting server:', err);
                 console.info('Exiting...');
             } else {
-                console.log(`Server running at http://localhost:${this.port}/`);
+                console.log(`Server running at http://${this.host}:${this.port}/`);
             }
         })
     }

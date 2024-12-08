@@ -4,8 +4,41 @@
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>个人中心</title>
+        <link href="../css/personal-center-form.css" rel="stylesheet">
     </head>
     <body>
         <h1>这里是个人中心</h1>
+        <div id="avatar">
+            <img src="../images/avatar.png" alt="头像"/>
+        </div>
+        <form action="" method="" id="personal-center-form">
+            <fieldset class="information">
+                <legend>个人信息</legend>
+                <div id="labels">
+                    <label for="username">用户名：</label>
+                    <label for="password">密码：</label>
+                    <label for="email">邮箱：</label>
+                    <label for="phone">电话：</label>
+                    <label for="department">部门：</label>
+                    <label for="position">职位：</label>
+                </div>
+                <div id="input-texts">
+                    <input type="text" id="username" name="username" readonly/>
+                    <input type="password" id="password" name="password" readonly/>
+                    <input type="email" id="email" name="email" readonly/>
+                    <input type="tel" id="phone" name="phone" readonly/>
+                    <input type="text" id="department" name="department" readonly/>
+                    <input type="text" id="position" name="position" readonly/>
+                </div>
+                <div class="empty-content"></div>
+            </fieldset>
+            <div id="buttons">
+                <div class="empty-content"></div>
+                <input type="button" value="修改" id="modify-btn"/>
+                <input type="submit" value="保存" id="save-btn"/>
+                <input type="reset" value="取消" id="cancel-btn"/>
+                <div class="empty-content"></div>
+            </div>
+        </form>
     </body>
 </html>
