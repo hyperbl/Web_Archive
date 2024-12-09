@@ -23,8 +23,13 @@ header {
     color: white;
     padding: 10px 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
+    /* 让水平栏显示在最上层 */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
 }
 
 header .logo {
@@ -79,6 +84,8 @@ aside {
     left: 0;
     height: 100%;
     padding-top: 60px;
+    /* 让侧边栏显示在导航栏下面 */
+    z-index: 99;
 }
 
 aside ul {
@@ -113,6 +120,13 @@ main {
     width: calc(100% - var(--aside-width));
     height: calc(100% - var(--header-height));
     background-color: antiquewhite; */
+    margin-top: 20px;
     margin-left: 220px;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+main .empty-content {
+    height: 25px;
 }
