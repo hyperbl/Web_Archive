@@ -8,7 +8,7 @@ import fs from 'node:fs';
 // default configuration
 const config = {
     "host": "localhost",
-    "port": 3000,
+    "port": 3001,
     "root": "./",
     "indexPage": "./html/index.html"
 };
@@ -39,16 +39,22 @@ class Server {
         readStream.pipe(res);
     }
     routeHandler(pathName, req, res) {
-        fs.stat(pathName, (err, stats) => {
-            if (err) {
-                console.error('Error stat-ing file:', err);
-                this.respondNotFound(req, res);
-            } else if (stats.isDirectory()) {
-                this.routeHandler(path.join(pathName, this.indexPage), req, res);
-            } else {
-                this.respondFile(pathName, req, res);
-            }
-        });
+        if (req.method === 'POST' && req.url === '/upload') {
+            console.log('Uploading file...');
+        } else {
+            fs.stat(pathName, (err, stats) => {
+                if (err) {
+                    console.error('Error stat-ing file:', err);
+                    this.respondNotFound(req, res);
+                } else if (stats.isDirectory()) {
+                    this.routeHandler(path.join(pathName, this.indexPage), req, res);
+                } else if (stats.isFile()) {
+                    this.respondFile(pathName, req, res);
+                } else {
+                    this.respondNotFound(req, res);
+                }
+            });
+        }
     }
     start() {
         http.createServer((req, res) => {

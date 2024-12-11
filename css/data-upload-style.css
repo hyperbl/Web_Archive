@@ -1,0 +1,43 @@
+#upload-form {
+    width: 50%;
+    height: 70%;
+    margin-left: 20%;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    padding: 20px;
+    border: 1px solid #7fafd4;
+}
+
+#upload-form input {
+    margin-top: 10px;
+}
+
+#upload-form button {
+    margin-left: 37%;
+}
+
+#upload-form button, #preview-btn {
+    margin-top: 10px;
+    width: 100px;
+    height: 30px;
+    background-color: #7fafd4;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#upload-result {
+    margin-top: 10px;
+    margin-left: 20%;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    padding: 20px;
+    border: 1px solid #7fafd4;
+    display: none;
+}

@@ -120,8 +120,8 @@ main {
     width: calc(100% - var(--aside-width));
     height: calc(100% - var(--header-height));
     background-color: antiquewhite; */
-    margin-top: 20px;
-    margin-left: 220px;
+    margin-top: 5%;
+    margin-left: 18%;
     padding: 20px;
     display: flex;
     flex-direction: column;
