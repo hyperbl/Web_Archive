@@ -6,7 +6,6 @@
         <title>资料上传</title>
         <link rel="stylesheet" href="../css/data-upload-style.css">
         <script src="../javascript/uploadFile.js" ></script>
-        <script src="../javascript/previewFile.js" ></script>
     </head>
     <body>
         <h1>这里是资料上传</h1>
@@ -23,9 +22,26 @@
 
                 <button type="submit">上传</button>
             </form>
+               
         </div>
-        <div id="upload-result"></div>
-        <button id="preview-btn" style="display: none;">查看文件</button>
+        <!-- <div id="upload-result"></div> -->
         <div id="preview-area"></div>
+        <div id="upload-history">
+            <h2>上传历史</h2>
+            <table>
+                <thead>
+                    <th>课程名称</th>
+                    <th>课程编号</th>
+                    <th>文件名</th>
+                    <th>文件类型</th>
+                    <th>上传时间</th>
+                    <th>文件大小</th>
+                    <th>操作</th>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
     </body>
 </html>

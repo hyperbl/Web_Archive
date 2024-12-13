@@ -1,3 +1,10 @@
+#upload {
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    padding: 20px;
+    border: 1px solid #7fafd4;
+}
+
 #upload-form {
     width: 50%;
     height: 70%;
@@ -5,10 +12,10 @@
     margin-right: 20px;
     margin-bottom: 20px;
     margin-top: 20px;
-    background-color: #f0f0f0;
+    /* background-color: #f0f0f0;
     border-radius: 10px;
     padding: 20px;
-    border: 1px solid #7fafd4;
+    border: 1px solid #7fafd4; */
 }
 
 #upload-form input {
@@ -19,7 +26,7 @@
     margin-left: 37%;
 }
 
-#upload-form button, #preview-btn {
+#upload-form button {
     margin-top: 10px;
     width: 100px;
     height: 30px;
@@ -40,4 +47,15 @@
     padding: 20px;
     border: 1px solid #7fafd4;
     display: none;
+}
+
+.preview-btn, .download-btn, .delete-btn {
+    margin-top: 10px;
+    width: 40px;
+    height: 20px;
+    background-color: #7fafd4;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
 }

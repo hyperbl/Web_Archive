@@ -1,0 +1,27 @@
+/* table.css -- CSS for the table */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px;
+}
+
+th, td {
+    border: 1px solid #7fafd4;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #7fafd4;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #f0f0f0;
+}
+
+/* End of css/table.css */

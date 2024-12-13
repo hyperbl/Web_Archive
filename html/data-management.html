@@ -7,5 +7,66 @@
     </head>
     <body>
         <h1>这里是资料管理</h1>
+        <!-- 支持分类筛选功能 -->
+        <div id="filter">
+            <label for="course-name">课程名称</label>
+            <input type="text" id="for-course-name" name="for-course-name" required/><br>
+            <label for="course-id">课程编号</label>
+            <input type="text" id="for-course-id" name="for-course-id" required/><br>
+            <button>筛选</button>
+        </div>
+        <!-- 这里是资料管理界面，采用表格的方式，类似文件系统 -->
+        <table>
+            <thead>
+                <th>课程名称</th>
+                <th>课程编号</th>
+                <th>文件名</th>
+                <th>文件类型</th>
+                <th>上传时间</th>
+                <th>文件大小</th>
+                <th>操作</th>
+            </thead>
+            <tbody>
+                <!-- 这里是一个文件的信息 -->
+                <tr>
+                    <td>课程名称</td>
+                    <td>课程编号</td>
+                    <td>文件名</td>
+                    <td>文件类型</td>
+                    <td>上传时间</td>
+                    <td>文件大小</td>
+                    <td>
+                        <button>下载</button>
+                        <button>删除</button>
+                    </td>
+                </tr>
+                <!-- 这里是另一个文件的信息 -->
+                <tr>
+                    <td>课程名称</td>
+                    <td>课程编号</td>
+                    <td>文件名</td>
+                    <td>文件类型</td>
+                    <td>上传时间</td>
+                    <td>文件大小</td>
+                    <td>
+                        <button>下载</button>
+                        <button>删除</button>
+                    </td>
+                </tr>
+                <!-- 这里是另一个文件的信息 -->
+                <tr>
+                    <td>课程名称</td>
+                    <td>课程编号</td>
+                    <td>文件名</td>
+                    <td>文件类型</td>
+                    <td>上传时间</td>
+                    <td>文件大小</td>
+                    <td>
+                        <button>下载</button>
+                        <button>删除</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </body>
 </html>
