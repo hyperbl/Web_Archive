@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>教学过程资料归档系统 - 登录</title>
+    <link rel="icon" href="../images/favicon.ico">
+    <link href="../css/login.css" rel="stylesheet">
+    <script src="../javascript/login.js" defer></script>
+</head>
+<body>
+    <div class="login-container">
+        <div class="logo">教学过程资料归档系统</div>
+        <form id="login-form" action="http://localhost:3001" method="POST">
+            <input type="text" name="username" placeholder="请输入用户名" required>
+            <input type="password" name="password" placeholder="请输入密码" required>
+            <button type="submit">登录</button>
+        </form>
+        <div class="links">
+            <a href="/forgot-password">忘记密码?</a> | 
+            <a href="/register">注册</a>
+        </div>
+    </div>
+</body>
+</html>

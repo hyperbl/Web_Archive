@@ -7,6 +7,11 @@ const saveBtn = document.getElementById("save-btn");
 const cancelBtn = document.getElementById("cancel-btn");
 
 const inputTexts = document.querySelector("#input-texts")
+const inputs = inputTexts.querySelectorAll("input");
+inputs.forEach(input => {
+    input.value = localStorage.getItem(input.name) || '';
+    input.readOnly = true;
+});
 
 modifyBtn.addEventListener("click", () => {
     const inputs = inputTexts.querySelectorAll("input");
@@ -18,14 +23,15 @@ modifyBtn.addEventListener("click", () => {
     modifyBtn.style.display = "none";
 });
 
-let changes = {};
+// let changes = {};
 
 saveBtn.addEventListener("click", (e) => {
     e.preventDefault();
     const inputs = inputTexts.querySelectorAll("input");
     inputs.forEach(input => {
         input.readOnly = true;
-        changes[input.name] = input.value;
+        // changes[input.name] = input.value;
+        localStorage.setItem(input.name, input.value);
     });
     saveBtn.style.display = "none";
     cancelBtn.style.display = "none";
@@ -36,10 +42,11 @@ cancelBtn.addEventListener("click", (e) => {
     e.preventDefault();
     const inputs = inputTexts.querySelectorAll("input");
     inputs.forEach(input => {
-        input.value = changes[input.name];
-        if (input.value === 'undefined') {
-            input.value = '';
-        }
+        // input.value = changes[input.name];
+        input.value = localStorage.getItem(input.name) || '';
+        // if (input.value === 'undefined') {
+        //     input.value = '';
+        // }
         input.readOnly = true;
     });
     saveBtn.style.display = "none";
