@@ -8,7 +8,7 @@
         <script src="../javascript/uploadFile.js" ></script>
     </head>
     <body>
-        <h1>这里是资料上传</h1>
+        <h1>资料上传</h1>
         <div id="upload">
             <form id="upload-form" enctype="multipart/form-data">
                 <label for="course-name">课程名称</label>
@@ -17,31 +17,24 @@
                 <label for="course-id">课程编号</label>
                 <input type="text" id="course-id" name="course-id" required/><br>
 
+                <label for="file-kind">资料类别</label>
+                <select id="file-kind" name="file-kind" required>
+                    <option value=""></option>
+                    <option value="transcript">成绩单</option>
+                    <option value="test-paper">空白试卷</option>
+                    <option value="regular-grade">平时成绩</option>
+                    <option value="teaching-calendar">教学日历</option>
+                    <option value="analysis-statistics">试题分析和成绩统计</option>
+                    <option value="scoring-standard">评分标准</option>
+                    <option value="others">其它</option>
+                </select><br>
+
                 <label for="file">选择文件</label>
                 <input type="file" id="file" name="file" required/><br>
 
                 <button type="submit">上传</button>
             </form>
-               
         </div>
-        <!-- <div id="upload-result"></div> -->
-        <div id="preview-area"></div>
-        <div id="upload-history">
-            <h2>上传历史</h2>
-            <table>
-                <thead>
-                    <th>课程名称</th>
-                    <th>课程编号</th>
-                    <th>文件名</th>
-                    <th>文件类型</th>
-                    <th>上传时间</th>
-                    <th>文件大小</th>
-                    <th>操作</th>
-                </thead>
-                <tbody>
-
-                </tbody>
-            </table>
         </div>
     </body>
 </html>

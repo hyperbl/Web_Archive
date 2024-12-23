@@ -1,0 +1,29 @@
+
+#choose-course {
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    width: 80%;
+}
+
+#choose-course label {
+    margin-right: 1%;
+}
+
+#choose-course input {
+    margin-right: 9%;
+    font-size: 14px;
+}
+
+#choose-course button {
+    margin-right: 4%;
+    height: 25px;
+    width: 60px;
+    background-color: #7fafd4;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}

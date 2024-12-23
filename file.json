@@ -1,0 +1,16 @@
+{
+    "teacher": {
+        "name": "John",
+        "age": 30,
+        "academicTitle": "教授",
+        "department": "计算机科学与技术系"
+    },
+    "academicYear": "2024-2025",
+    "courseName": "计算机组成原理",
+    "courseID": "CS305",
+    "fileName": "xxxx成绩单",
+    "fileKind": "成绩单",
+    "uploadTime": "2024-12-23",
+    "fileSize": "1.2MB",
+    "fileURL": "http://localhost:3001/file.json"
+}

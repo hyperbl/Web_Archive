@@ -18,7 +18,7 @@
     border: 1px solid #7fafd4; */
 }
 
-#upload-form input {
+#upload-form input, #upload-form select {
     margin-top: 10px;
 }
 
@@ -53,9 +53,4 @@
     margin-top: 10px;
     width: 40px;
     height: 20px;
-    background-color: #7fafd4;
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-size: 14px;
 }

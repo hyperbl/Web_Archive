@@ -1,8 +1,9 @@
 /* table.css -- CSS for the table */
 table {
     border-collapse: collapse;
-    width: 100%;
+    width: 96%;
     margin: 20px;
+    margin-right: 4%;
 }
 
 th, td {
@@ -24,4 +25,12 @@ tr:hover {
     background-color: #f0f0f0;
 }
 
-/* End of css/table.css */
+table button {
+    background-color: #7fafd4;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 2px;
+    margin: 2px;
+}

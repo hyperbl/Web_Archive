@@ -3,6 +3,7 @@
 // It is responsible for setting up the server and handling requests.
 import http from 'node:http';
 import path from 'node:path';
+import url from 'node:url';
 import fs from 'node:fs';
 
 // default configuration
@@ -11,6 +12,33 @@ const config = {
     "port": 3001,
     "root": "./",
     "indexPage": "./html/index.html"
+};
+
+// MIME types
+const mimeTypes = {
+    ".html": "text/html",
+    ".css": "text/css",
+    ".js": "application/javascript",
+    ".json": "application/json",
+    ".png": "image/png",
+    ".jpg": "image/jpeg",
+    ".ico": "image/x-icon",
+    ".svg": "image/svg+xml",
+    ".pdf": "application/pdf",
+    ".zip": "application/zip",
+    ".doc": "application/msword",
+    ".docx": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    ".xls": "application/vnd.ms-excel",
+    ".xlsx": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    ".txt"  : "text/plain",
+    ".mp3": "audio/mpeg",
+    ".wav": "audio/wav",
+    ".mp4": "video/mp4",
+    ".webm": "video/webm",
+    ".woff": "font/woff",
+    ".woff2": "font/woff2",
+    ".ttf": "font/ttf",
+    ".eot": "application/vnd.ms-fontobject"
 };
 
 class Server {
@@ -31,6 +59,9 @@ class Server {
         // res.end('Not Found');
     }
     respondFile(pathName, req, res) {
+        const ext = path.extname(pathName);
+        const mimeType = mimeTypes[ext] || 'application/octet-stream';
+        res.writeHead(200, {'Content-Type': mimeType});
         const readStream = fs.createReadStream(pathName);
         readStream.on('error', (err) => {
             console.error('Error reading file:', err);
@@ -58,9 +89,10 @@ class Server {
     }
     start() {
         http.createServer((req, res) => {
-            const pathName = path.join(this.root, path.normalize(req.url));
+            const parsedUrl = url.parse(req.url);
+            const pathName = path.join(this.root, path.normalize(parsedUrl.pathname));
             console.log(`Request for ${pathName}`);
-            res.statusCode = 200;
+            // res.statusCode = 200;
             // res.writeHead(200);
             // res.end(`Request for ${pathName}`);
             this.routeHandler(pathName, req, res);
