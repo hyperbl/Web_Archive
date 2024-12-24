@@ -1,0 +1,8 @@
+{
+    "username": "johndoe",
+    "password": "password123",
+    "email": "example@example.com",
+    "phone": "123-456-7890",
+    "position": "teacher",
+    "department": "计算机系"
+}

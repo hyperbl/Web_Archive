@@ -1,10 +1,4 @@
 {
-    "teacher": {
-        "name": "John",
-        "age": 30,
-        "academicTitle": "教授",
-        "department": "计算机科学与技术系"
-    },
     "academicYear": "2024-2025",
     "courseName": "计算机组成原理",
     "courseID": "CS305",
