@@ -23,18 +23,10 @@
 }
 
 #upload-form button {
-    margin-left: 37%;
-}
-
-#upload-form button {
     margin-top: 10px;
+    margin-left: 37%;
     width: 100px;
     height: 30px;
-    background-color: #7fafd4;
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-size: 14px;
 }
 
 #upload-result {

@@ -11,6 +11,13 @@ class EasyDB {
     }
     #db = null;
     /**
+     * 获取数据库数据最大条数
+     * @returns {int} 返回数据库数据最大条数
+     */
+    getLength() {
+        return this.#db.length;
+    }
+    /**
      * 连接数据库
      */
     connect() {
@@ -27,7 +34,8 @@ class EasyDB {
         this.#db = null;
     }
     /**
-     * 根据key(一个整数)和value(一个文件对象)来存储数据
+     * 根据key(一个整数)和value(一个文件对象)来存储数据,
+     * 如果key已存在，则覆盖原有数据(相当于更新数据)
      * @param {int} key 
      * @param {object} value 
      */
@@ -55,6 +63,33 @@ class EasyDB {
     removeItem(key) {
         this.#db.removeItem(key);
     }
+    /**
+     * 插入数据
+     * @param {object} value 
+     */
+    insert(value) {
+        let index = parseInt(localStorage.getItem("index") || 0);
+        this.setItem(index, value);
+        localStorage.setItem("index", index + 1);
+    }
+    /**
+     * 异步方式获取所有数据
+     * @returns {Promise<Array>} 返回一个Promise对象，resolve时返回所有数据
+     */
+    async getAll() {
+        return new Promise((resolve, reject) => {
+            let data = [];
+            try {
+                this.forEach((key, value) => {
+                    data.push(value);
+                });
+                resolve(data);
+            } catch (e) {
+                console.log("EasyDB.getAll: Error occurred when getting all data.");
+                reject(e);
+            }
+        })
+    };
     /**
      * 清空数据库，mode: "all" 清空所有数据，"numeric" 只清空key为数字的数据
      * @param {string} mode 

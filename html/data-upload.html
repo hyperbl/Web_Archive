@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>资料上传</title>
         <link rel="stylesheet" href="../css/data-upload-style.css">
-        <script src="../javascript/uploadFile.js" ></script>
+        <script src="../javascript/uploadFile.js" type="module"></script>
     </head>
     <body>
         <h1>资料上传</h1>
@@ -30,7 +30,7 @@
                 </select><br>
 
                 <label for="file">选择文件</label>
-                <input type="file" id="file" name="file" required/><br>
+                <input type="file" id="file" name="file" class="btn" required/><br>
 
                 <button type="submit">上传</button>
             </form>

@@ -8,7 +8,7 @@
         <script src="../javascript/manageFileUploaded.js" type="module" defer></script>
     </head>
     <body>
-        <h1>这里是资料管理</h1>
+        <h1>资料管理</h1>
         <div id="choose-course" class="container">
             <label for="course-id">课程编号</label>
             <input type="text" id="course-id" name="course-id"/><br>
@@ -16,16 +16,20 @@
             <input type="text" id="course-name" name="course-name"/><br>
             <button id="search-btn">搜索</button>
         </div>
-        <table id="data-table">
-            <thead>
-                <th>文件名</th>
-                <th>资料类型</th>
-                <th>上传时间</th>
-                <th>文件大小</th>
-                <th>操作</th>
-            </thead>
-            <tbody>
-                
-            </tbody>
+        <div id="data-div" class="container">
+            <table id="data-table">
+                <thead>
+                    <th>课程名称</th>
+                    <th>文件名</th>
+                    <th>资料类型</th>
+                    <th>上传时间</th>
+                    <th>文件大小</th>
+                    <th>操作</th>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </div>
     </body>
 </html>

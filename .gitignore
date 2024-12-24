@@ -20,3 +20,4 @@ Gemfile.lock
 
 # user-specific ignores
 uploads/
+node_modules/

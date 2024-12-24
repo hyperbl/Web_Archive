@@ -7,7 +7,7 @@ table {
 }
 
 th, td {
-    border: 1px solid #7fafd4;
+    border: 1px solid #ddd;
     padding: 8px;
     text-align: center;
 }
@@ -26,11 +26,6 @@ tr:hover {
 }
 
 table button {
-    background-color: #7fafd4;
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-size: 14px;
     padding: 2px;
     margin: 2px;
 }

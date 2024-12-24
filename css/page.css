@@ -137,3 +137,20 @@ main .container {
     padding: 20px;
     border: 1px solid #7fafd4;
 }
+
+main button,
+main input[type="button"] {
+    margin-top: 10px;
+    width: 100px;
+    height: 30px;
+    background-color: #7fafd4;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+main button:hover,
+main input[type="button"]:hover {
+    background-color: #5f8db4;
+}

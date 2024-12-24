@@ -5,7 +5,6 @@
     justify-content: center;
     flex-direction: row;
     align-items: center;
-    width: 80%;
 }
 
 #choose-course label {
@@ -21,9 +20,19 @@
     margin-right: 4%;
     height: 25px;
     width: 60px;
-    background-color: #7fafd4;
-    color: white;
-    border: none;
+}
+
+.show-more {
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    color: #6ea3cc;
+    width: fit-content;
+}
+
+.show-more:hover {
+    color: #7fafd4;
     cursor: pointer;
-    font-size: 14px;
 }

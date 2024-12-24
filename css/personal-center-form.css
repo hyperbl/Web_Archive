@@ -67,3 +67,7 @@
     cursor: pointer;
     font-size: 14px;
 }
+
+#buttons input:hover {
+    background-color: #5f8db4;
+}

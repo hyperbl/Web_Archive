@@ -10,5 +10,8 @@
   "type": "module",
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "formidable": "^3.5.2"
+  }
 }
