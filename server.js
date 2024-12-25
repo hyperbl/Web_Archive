@@ -116,6 +116,38 @@ class Server {
                     return;
                 }
             });
+        } else if (req.method === 'GET' && req.url.includes('/download')) {
+            const parsedUrl = url.parse(req.url, true);
+            const fileUrl = parsedUrl.query.fileUrl;
+            console.log('Downloading file:', fileUrl);
+            const readStream = fs.createReadStream(fileUrl);
+            readStream.on('error', (err) => {
+                console.error('Error reading file:', err);
+                this.respondNotFound(req, res);
+            });
+            res.setHeader('Content-Disposition', `attachment; filename=${path.basename(fileUrl)}`);
+            readStream.pipe(res);
+        } else if (req.method === 'DELETE' && req.url === '/delete') {
+            console.log('Deleting file...');
+            let data = '';
+            req.on('data', chunk => {
+                data += chunk;
+            });
+            req.on('end', () => {
+                const parsedData = JSON.parse(data);
+                const fileUrl = parsedData.fileUrl;
+                console.log('Deleting file:', fileUrl);
+                fs.unlink(fileUrl, (err) => {
+                    if (err) {
+                        console.error('Error deleting file:', err);
+                        res.writeHead(500, {'Content-Type': 'application/json'});
+                        res.end(JSON.stringify({success: false, message: 'Error deleting file'}));
+                    } else {
+                        res.writeHead(200, {'Content-Type': 'application/json'});
+                        res.end(JSON.stringify({success: true, message: 'File deleted successfully'}));
+                    }
+                });
+            });
         } else {
             fs.stat(pathName, (err, stats) => {
                 if (err) {

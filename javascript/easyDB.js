@@ -59,37 +59,13 @@ class EasyDB {
     /**
      * 根据key来删除数据
      * @param {int} key 
+     * @returns {object} 返回被删除的数据
      */
     removeItem(key) {
+        const value = this.getItem(key);
         this.#db.removeItem(key);
+        return value;
     }
-    /**
-     * 插入数据
-     * @param {object} value 
-     */
-    insert(value) {
-        let index = parseInt(localStorage.getItem("index") || 0);
-        this.setItem(index, value);
-        localStorage.setItem("index", index + 1);
-    }
-    /**
-     * 异步方式获取所有数据
-     * @returns {Promise<Array>} 返回一个Promise对象，resolve时返回所有数据
-     */
-    async getAll() {
-        return new Promise((resolve, reject) => {
-            let data = [];
-            try {
-                this.forEach((key, value) => {
-                    data.push(value);
-                });
-                resolve(data);
-            } catch (e) {
-                console.log("EasyDB.getAll: Error occurred when getting all data.");
-                reject(e);
-            }
-        })
-    };
     /**
      * 清空数据库，mode: "all" 清空所有数据，"numeric" 只清空key为数字的数据
      * @param {string} mode 
@@ -127,7 +103,7 @@ class EasyDB {
     }
     /**
      * 迭代数据库中的所有key为整数的数据
-     * @param {(key: int, value: string) => void} callback 
+     * @param {(key: int, value: object) => void} callback 
      */
     forEach(callback) {
         // 只处理key为数字的数据
@@ -138,6 +114,135 @@ class EasyDB {
             }
         }
     }
+    /**
+     * 插入数据
+     * @param {object} value 
+     */
+    insert(value) {
+        let index = parseInt(localStorage.getItem("index") || 0);
+        this.setItem(index, value);
+        localStorage.setItem("index", index + 1);
+    }
+    /**
+     * 根据传入的对象来删除所有符合条件数据
+     * @param {object} value
+     * @returns {Array<object>} 返回被删除的数据
+     */
+    delete(value) {
+        let data = [];
+        if (typeof value !== "object") {
+            console.warn("EasyDB.delete: Invalid value.");
+            return;
+        }
+        let flag = true;
+        this.forEach((key, val) => {
+            flag = true;
+            for (const item in value) {
+                if (val[item] !== value[item]) {
+                    flag = false;
+                    break;
+                }
+            }
+            if (flag) {
+                data.push(this.removeItem(key));
+            }
+        });
+        return data;
+    }
+    /**
+     * 根据传入的对象来获取所有符合条件数据
+     * @param {object} value 
+     * @returns {Array<object>} 返回符合条件的数据
+     */
+    select(value) {
+        if (typeof value !== "object") {
+            console.warn("EasyDB.select: Invalid value.");
+            return;
+        }
+        let data = [];
+        let flag = true;
+        this.forEach((key, val) => {
+            flag = true;
+            for (const item in value) {
+                if (val[item] !== value[item]) {
+                    flag = false;
+                    break;
+                }
+            }
+            if (flag) {
+                data.push(val);
+            }
+        });
+        return data;
+    }
+    // 以下方法均为异步方法
+    /**
+     * 异步方式插入数据
+     * @param {object} value 
+     * @returns {Promise<void>} 返回一个Promise对象
+     */
+    async insertAsync(value) {
+        return new Promise((resolve, reject) => {
+            try {
+                this.insert(value);
+                resolve();
+            } catch (e) {
+                console.log("EasyDB.insertAsync: Error occurred when inserting data.");
+                reject(e);
+            }
+        });
+    }
+    /**
+     * 异步方式删除数据
+     * @param {object} value 
+     * @returns {Promise<void>} 返回一个Promise对象
+     */
+    async deleteAsync(value) {
+        return new Promise((resolve, reject) => {
+            try {
+                let data = this.delete(value);
+                resolve(data);
+            } catch (e) {
+                console.log("EasyDB.deleteAsync: Error occurred when deleting data.");
+                reject(e);
+            }
+        });
+    }
+    /**
+     * 异步方式获取符合条件数据
+     * @param {object} value 
+     * @returns {Promise<object>} 返回一个Promise对象，resolve时返回key对应的value
+     */
+    async selectAsync(value) {
+        return new Promise((resolve, reject) => {
+            let data = [];
+            try {
+                data = this.select(value);
+                resolve(data);
+            } catch (e) {
+                console.log("EasyDB.selectAsync: Error occurred when selecting data.");
+                reject(e);
+            }
+        });
+    }
+    /**
+     * 异步方式获取所有数据
+     * @returns {Promise<Array>} 返回一个Promise对象，resolve时返回所有数据
+     */
+    async getAll() {
+        return new Promise((resolve, reject) => {
+            let data = [];
+            try {
+                this.forEach((key, value) => {
+                    data.push(value);
+                });
+                resolve(data);
+            } catch (e) {
+                console.log("EasyDB.getAll: Error occurred when getting all data.");
+                reject(e);
+            }
+        })
+    };
 }
 
 function isNumber(value) {
